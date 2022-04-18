@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maneja tus ingresos y gastos de manera facil</title>
+    <link rel="stylesheet" href="ingresosYGastos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Antique&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <section>
+        <div class="divs">
+            <h1>ingresos</h1>
+
+
+
+            <form action="">
+                <label for="numeroDeIngresos">agrega tus fuentes de ingreso</label><br>
+                <input type="text" id="nombreDeFuente" placeholder="nombre"><br>
+                <input type="number" id="numeroDeIngresos" placeholder="ingreso bruto"><br>
+                <button type="button" onclick="addFuentesDeIngresos()">add</button><br>
+                <button type="button" onclick="deleteElementIngresos()">delete</button><br>
+                <div id='fuentesDeIngresos'>
+
+                </div>
+                <p class="ingresoTotal"></p>
+
+                <button onclick='calcularImpuestoDeRenta()' id='impuesto' type="button">valor neto</button>
+
+
+            </form>
+
+        </div>
+        <div class='divs'>
+            <h1>gastos</h1>
+            <form action="">
+                <p id="gastoNumero"></p>
+                <label for="numeroDeIngresos">agrega todos tus gastos</label><br>
+                <input type="text" id="nombreDeGastos" placeholder="nombre"><br>
+                <input type="number" id="numeroDeGastos" placeholder="gasto"><br>
+                <button type="button" onclick="addFuentesDeGastos()">add</button><br>
+               <button type="button" id='deleteGastos' onclick="deleteElement()">delete</button><br> 
+                <div id='fuentesDeGastos'>
+
+                </div>
+
+
+                <button onclick='calcularGastoTotal()' id='impuesto' type="button">valor final</button>
+                <p id="gastoTotal">
+                </p>
+
+            </form>
+
+        </div>
+
+
+    </section>
+
+
+    <script src="ingresosYGastos.js"></script>
+</body>
+
+</html>

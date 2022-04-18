@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Shippori Antique', sans-serif;
+   }
+
+
+   section{
+       display: flex;
+       flex-direction: row;
+       justify-content: center;
+       margin: 50px;
+   }
+
+   section .divs{
+       display: block;
+        border: solid black 2px;
+        border-radius: 10px;
+        width: 30%;
+        max-height: 700px;
+        margin: 50px;
+        padding-top: 0;
+        padding: 0px;
+        background-color: rgb(37, 41, 97);
+        color: #fff;
+
+    }
+
+    #fuentesDeIngresos,#fuentesDeGastos{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        max-height: 500px;
+        justify-content: center;
+    }
+    
+    .fuentes_de_ingresos{
+        border: black 1px solid;
+        display: block;
+        margin: 5px;
+        max-width: 80px;
+        font-size: 15px;
+        border-radius: 5px;
+        height: 50px;
+        text-align: center;
+        background-color: white;
+        color: rgb(29, 29, 104);
+        padding: 5px;
+        cursor: pointer;
+    }
+.fuentes_de_ingresos:hover{
+    background-color:rgb(57, 57, 157) ;
+    
+}
+    input{
+        margin: 5px;
+        
+    }
+
+
+    p,h1,h2,label{
+        text-align: center;
+    
+    }
+
+    form{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 10px;
+        margin: 10px;
+    }
+
+    input{
+        width: 60%;
+        align-self: center;
+    margin: 10px;
+    padding: 5px;
+    border-radius:10px ;
+    border: 2px solid black;
+    }
+
+    button{
+        width: 40%;
+        align-self: center;
+    margin: 10px;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 10px ;
+
+}
+
+h1{
+    display: block;
+    border-bottom: 2px solid black;
+    padding: 0;
+    padding-bottom: 15px;
+    width: 100%;
+    
+    background-color: rgb(7, 9, 61);
+    padding-top: 15px;
+    
+    border-top-left-radius: 10px;
+    border-top-right-radius:10px ;
+}
+
+.tg{
+    background-color: rgb(99, 23, 23);
+    color: white;
+}
+
