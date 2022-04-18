@@ -19,7 +19,8 @@
        }
        .divs {
            width: 80% !important;
-           margin: 10px;;
+           margin: 10px;
+           margin-left: 0;
        }
    }
 
