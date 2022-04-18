@@ -17,7 +17,10 @@ function addFuentesDeIngresos() {
 
     const valorDeIngresos = parseFloat(numeroDeIngresos.value)
 
-
+    if (nombreDeFuente.length == 0  || valorDeIngresos <=0){
+        alert("Por favor pon un numero valido")
+    return false
+    }
     const elemento = {
         nombre: nombreDeFuente,
         valor: valorDeIngresos
@@ -53,6 +56,10 @@ function addFuentesDeGastos() {
 
     const valorDeIngresos = parseFloat(document.getElementById('numeroDeGastos').value)
 
+    if (nombreDeFuente.length == 0  || valorDeIngresos <=0){
+        alert("Por favor pon un numero valido")
+    return false
+    }
     const elemento = {
         nombre: nombreDeFuente,
         valor: valorDeIngresos
