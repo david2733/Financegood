@@ -126,8 +126,8 @@
     border-radius: 10px ;
     
     font-size: 25px;
-    max-height: 90px
-
+    max-height: 90px;
+    min-height: 60px;
 }
 
 h1{
