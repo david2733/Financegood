@@ -17,9 +17,9 @@ function addFuentesDeIngresos() {
 
     const valorDeIngresos = parseFloat(numeroDeIngresos.value)
 
-    if (nombreDeFuente.length == 0  || valorDeIngresos <=0){
+    if (nombreDeFuente.length == 0 || valorDeIngresos <= 0) {
         alert("Por favor pon un numero valido")
-    return false
+        return false
     }
     const elemento = {
         nombre: nombreDeFuente,
@@ -56,9 +56,9 @@ function addFuentesDeGastos() {
 
     const valorDeIngresos = parseFloat(document.getElementById('numeroDeGastos').value)
 
-    if (nombreDeFuente.length == 0  || valorDeIngresos <=0){
+    if (nombreDeFuente.length == 0 || valorDeIngresos <= 0 || valorDeIngresos == NaN) {
         alert("Por favor pon un numero valido")
-    return false
+        return false
     }
     const elemento = {
         nombre: nombreDeFuente,
@@ -74,17 +74,16 @@ function addFuentesDeGastos() {
     }
 
     div.innerHTML += `
-        <div class='fuentes_de_ingresos fuentes_de_ingresos${lego}' onclick='toggle(".fuentes_de_ingresos${lego}")'>
+        <div class='fuentes_de_gastos fuentes_de_gastos${lego}' onclick='toggle(".fuentes_de_gastos${lego}")'>
         <p>${nombreDeFuente}<br>
             ${valorDeIngresos}<br>
         </p>
         </div>
         `
-    if (nombreDeFuente.length > 0 && valorDeIngresos > 0) divParaFuentesDeGastos.append(div.querySelector('.fuentes_de_ingresos' + lego))
+    if (nombreDeFuente.length > 0 && valorDeIngresos > 0) divParaFuentesDeGastos.append(div.querySelector('.fuentes_de_gastos' + lego))
     else alert('porfavor agrega un fuente de ingresos valida')
 
-    document.getElementById('nombreDeGastos').value = ''
-    document.getElementById('numeroDeGastos').value = null
+
 }
 
 // calculating the tax income
@@ -97,9 +96,9 @@ function calcularImpuestoDeRenta() {
         bruto += parseInt(element.valor)
     });
     valorNeto = (bruto - (bruto * porcentaje)).toFixed(2)
-    impuesto.innerHTML = `tus ingresos brutos son de ${bruto} dolares, con impuestos restados son ${valorNeto} dolares`
+    impuesto.innerHTML = `tus ingresos brutos son de ${bruto} dolares, con impuestos restados son ${valorNeto} pesos`
 
-    document.getElementById('gastoNumero').innerHTML = `tu dinero actual es de ${valorNeto}`
+    document.getElementById('gastoNumero').innerHTML = `tu dinero actual es de ${valorNeto} pesos`
 
     for (i = 0; i < fuentesDeIngresosDatos.length; i++) {
         delete fuentesDeIngresosDatos[i]
@@ -124,18 +123,18 @@ function calcularGastoTotal() {
     console.log(gastoFinal)
 
     if (final > 0) {
-        resultadoFinal.innerHTML = `despues de pagar todos tus gastos te sobra ${final}`
+        resultadoFinal.innerHTML = `despues de pagar todos tus gastos te sobra ${final} pesos`
     }
     else if (final < 0) {
-        resultadoFinal.innerHTML = `arregla tus finanzas, no te sobra nada incluso the falta ${Math.abs(final)}`
+        resultadoFinal.innerHTML = `arregla tus finanzas, no te sobra nada incluso the falta ${Math.abs(final)} pesos`
     }
     else {
         resultadoFinal.innerHTML = `no te sobra nada :(`
     }
-    document.getElementById('gastoNumero').innerHTML = `tu dinero actual es de ${final} `
+    document.getElementById('gastoNumero').innerHTML = `tu dinero actual es de ${final} pesos `
 
     bruto = 0
-    valorNeto = 0
+    valorNeto = valorNeto - gastoFinal
 }
 
 
@@ -150,7 +149,7 @@ function toggle(e) {
 
 function deleteElement() {
 
-    let items = document.querySelectorAll('.fuentes_de_ingresos')
+    let items = document.querySelectorAll('.fuentes_de_gastos')
 
 
     if (items.length) {
@@ -158,7 +157,12 @@ function deleteElement() {
             if (items[i].classList.contains('tg')) {
                 console.log(i);
                 items.item(i).remove()
-                delete fuentesDeGastosDatos.splice(i, 1)
+                if (fuentesDeGastosDatos[i]) delete fuentesDeGastosDatos[i]
+                else if (fuentesDeGastosDatos){
+                    for (i in fuentesDeGastosDatos){
+                        delete fuentesDeGastosDatos[i]
+                    }
+                }
             }
         }
     }
@@ -175,7 +179,8 @@ function deleteElementIngresos() {
             if (items[i].classList.contains('tg')) {
                 console.log(i);
                 items.item(i).remove()
-                delete fuentesDeIngresosDatos.splice(i, 1)
+                if (fuentesDeIngresosDatos[i]) delete fuentesDeIngresosDatos[i]
+                else continue
             }
         }
     }
@@ -190,3 +195,4 @@ function deleteNodesBetween(nodeList, startValue, endValue) {
         nodeList.item(actualValue).remove();
     }
 }
+//f
