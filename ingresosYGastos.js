@@ -134,10 +134,9 @@ function calcularGastoTotal() {
     document.getElementById('gastoNumero').innerHTML = `tu dinero actual es de ${final} pesos `
 
     bruto = 0
-    valorNeto = valorNeto - gastoFinal
+    valorNeto = valorNeto - gastoFinal //f
+
 }
-
-
 
 
 function toggle(e) {
